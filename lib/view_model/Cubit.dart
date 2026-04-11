@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:bloc/bloc.dart';
-import 'package:expense_app_tracker/Shared/States.dart';
+import 'package:expense_app_tracker/view_model/States.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
@@ -151,6 +151,14 @@ class AppCubit extends Cubit<AppStates> {
       print('Error when updating data ${error.toString()}');
     });
   }
+
+  void clearControllers() {
+    itemNameController.clear();
+    itemPriceController.clear();
+    itemDateController.clear();
+    selectedCategory = null;
+  }
+
 String totalPrice() {
   if (items.isEmpty) {
     return '0'; 
