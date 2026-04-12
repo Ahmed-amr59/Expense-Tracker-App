@@ -95,9 +95,7 @@ class _AddItemscreenState extends State<AddItemscreen> {
                             if (value!.isEmpty) {
                               return 'Please enter the item price';
                             }
-                            if (int.tryParse(value) == null) {
-                              return "Please enter a valid number";
-                            }
+                        
                             return null;
                           },
                           controller: cubit.itemPriceController,
@@ -181,7 +179,7 @@ class _AddItemscreenState extends State<AddItemscreen> {
                           onTap: () => showDatePicker(
                             context: context,
                             initialDate: DateTime.now(),
-                            firstDate: DateTime.now(),
+                            firstDate: DateTime(2000),
                             lastDate: DateTime(DateTime.now().year + 10),
                           ).then((value) {
                             if (value != null) {
