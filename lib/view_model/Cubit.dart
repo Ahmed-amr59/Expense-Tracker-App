@@ -71,7 +71,7 @@ class AppCubit extends Cubit<AppStates> {
       onCreate: (Database database, int version) async {
         await database
             .execute(
-                'CREATE TABLE Items (id INTEGER PRIMARY KEY, title TEXT, price INTEGER, date TEXT, category TEXT)')
+                'CREATE TABLE Items (id INTEGER PRIMARY KEY, title TEXT, price REAL, date TEXT, category TEXT)')
             .then((value) {
           print('Database Created');
         }).catchError((error) {
@@ -87,7 +87,7 @@ class AppCubit extends Cubit<AppStates> {
 
   Future insertToDatabase({
     required String title,
-    required int price,
+    required double price,
     required String date,
     required String category,
   }) async {
@@ -135,7 +135,7 @@ class AppCubit extends Cubit<AppStates> {
   Future updateDataInDatabase(
     {
     required String title,
-    required int price,
+    required double price,
     required String date,
     required String category,
     required int id,
